@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: git2consul
+  labels:
+    app: git2consul
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: git2consul
+    spec:
+      containers:
+      - name: git2consul
+        image: sroskelley/docker-git2consul:latest
+        env:
+        - name: ID
+          valueFrom:
+            secretKeyRef:
+             name: github
+             key: idrsa
+        - name: IDPUB
+          valueFrom:
+            secretKeyRef:
+             name: github
+             key: idrsa.pub
+        - name: CFG
+          value: '{"version":"1.0","repos":[{"name":"config","url":"git@github.com:myrepo/myproject.git","source_root":"dev","mountpoint":"","branches":["master"],"include_branch_name":false,"hooks":[{"type":"polling","interval":"1"}]}]}'
+        - name: CONSUL_ENDPOINT
+          value: $(CONSUL_SERVICE_HOST)
+        - name: CONSUL_PORT
+          value: "8500"
