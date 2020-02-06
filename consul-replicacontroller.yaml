@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: consul
-          command: [ "/bin/agent", "-dev" ]
+          command: consul agent -server 
           image: consul:latest
           imagePullPolicy: Always
           ports:
