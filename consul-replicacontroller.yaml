@@ -13,7 +13,6 @@ spec:
     spec:
       containers:
         - name: consul
-          command: []
           image: consul:latest
           imagePullPolicy: Always
           ports:
