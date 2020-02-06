@@ -26,7 +26,7 @@ spec:
              name: github
              key: idrsa.pub
         - name: CFG
-          value: '{"version":"1.0","repos":[{"name":"config","url":"git@github.com:myrepo/myproject.git","source_root":"dev","mountpoint":"","branches":["master"],"include_branch_name":false,"hooks":[{"type":"polling","interval":"1"}]}]}'
+          value: '{"version":"1.0","repos":[{"name":"config","url":"git@github.com:valentintodorov/configs.git","source_root":"dev","mountpoint":"","branches":["master"],"include_branch_name":false,"hooks":[{"type":"polling","interval":"1"}]}]}'
         - name: CONSUL_ENDPOINT
           value: $(CONSUL_SERVICE_HOST)
         - name: CONSUL_PORT
