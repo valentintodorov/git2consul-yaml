@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: consul
-          command: [ "/bin/start", "-server", "-bootstrap-expect", "1", "-atlas", "your_user_name/consul", "-atlas-join", "-atlas-token", "yourtoken" ]
+          command: [ "agent", "-dev" ]
           image: consul:latest
           imagePullPolicy: Always
           ports:
