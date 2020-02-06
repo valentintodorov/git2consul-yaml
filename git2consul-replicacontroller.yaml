@@ -15,19 +15,9 @@ spec:
       - name: git2consul
         image: sroskelley/docker-git2consul:latest
         env:
-        - name: ID
-          valueFrom:
-            secretKeyRef:
-             name: github
-             key: idrsa
-        - name: IDPUB
-          valueFrom:
-            secretKeyRef:
-             name: github
-             key: idrsa.pub
         - name: CFG
-          value: '{"version":"1.0","repos":[{"name":"config","url":"git@github.com:valentintodorov/configs.git","source_root":"dev","mountpoint":"","branches":["master"],"include_branch_name":false,"hooks":[{"type":"polling","interval":"1"}]}]}'
+          value: '{"version":"1.0","repos":[{"name":"config","url":"https://github.com/valentintodorov/configs.git","branches":["master"],"include_branch_name":false,"ignore_repo_name":true,"ignore_file_extension":true,"expand_keys":true,"hooks":[{"type":"polling","interval":"1"}]}]}'
         - name: CONSUL_ENDPOINT
-          value: $(CONSUL_SERVICE_HOST)
+          value: "10.1.0.251"
         - name: CONSUL_PORT
           value: "8500"
