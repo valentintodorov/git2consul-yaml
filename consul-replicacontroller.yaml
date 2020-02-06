@@ -14,7 +14,7 @@ spec:
       containers:
         - name: consul
           command: [ "/bin/start", "-server", "-bootstrap-expect", "3", "-atlas", "your_user_name/consul", "-atlas-join", "-atlas-token", "yourtoken" ]
-          image: progrium/consul:latest
+          image: consul:latest
           imagePullPolicy: Always
           ports:
           - containerPort: 8500
